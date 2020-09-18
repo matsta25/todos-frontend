@@ -25,14 +25,14 @@ export class TodoService {
   }
 
   public updateTodo(todo: Todo): Observable<Todo> {
-    return this.http.put(`${environment.API_BASE}${TODOS_ENDPOINT}`, todo);
+    return this.http.put<Todo>(`${environment.API_BASE}${TODOS_ENDPOINT}`, todo);
   }
 
-  public deleteTodo(id: number): Observable<Todo> {
-    return this.http.delete(`${environment.API_BASE}${TODOS_ENDPOINT}/${id}`);
+  public deleteTodo(id: number): Observable<string> {
+    return this.http.delete<string>(`${environment.API_BASE}${TODOS_ENDPOINT}/${id}`);
   }
 
   public saveTodo(todo: Todo): Observable<Todo> {
-    return this.http.post(`${environment.API_BASE}${TODOS_ENDPOINT}`, todo);
+    return this.http.post<Todo>(`${environment.API_BASE}${TODOS_ENDPOINT}`, todo);
   }
 }
