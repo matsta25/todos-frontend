@@ -1,0 +1,31 @@
+<blockquote class="blockquote">
+  <p class="mb-0">Todo Details:</p>
+</blockquote>
+
+
+<div class="mb-3">
+  <a [routerLink]="['/', 'todos' ]">Go back</a>
+</div>
+
+<div *ngIf="todo; then todoBlock else noDataBlock"></div>
+
+<ng-template #todoBlock>
+
+  <div class="card mb-3">
+    <div class="card-body">
+      <h5 class="card-title">
+        ({{ todo.id }}) {{ todo.title }}</h5>
+      <h6 class="card-subtitle mb-2 text-muted">
+        {{ todo.userName }}
+      </h6>
+      <p class="card-text">
+        {{ todo.description }}
+      </p>
+    </div>
+  </div>
+
+</ng-template>
+
+<ng-template #noDataBlock>
+  No data found.
+</ng-template>
